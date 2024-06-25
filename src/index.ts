@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { connectToDatabase } from './databaseConnection';
+import carRoute from './routes/car.route';
 
 dotenv.config();
 
@@ -12,9 +13,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  return res.json({ message: 'Hello World!' });
-});
+app.use('/', carRoute);
 
 app.listen(PORT, async () => {
   await connectToDatabase();
