@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createDriver, deleteDriver, getAllDrivers, getDriver, updateDriver } from 'src/controller/driver.controller';
+import { createDriver, deleteDriver, getAllDrivers, getDriver, updateDriver } from '../controller/driver.controller';
 
 const driverRoute = () => {
   const router = Router();

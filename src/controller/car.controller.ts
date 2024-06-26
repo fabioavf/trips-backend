@@ -62,6 +62,10 @@ const deleteCar = async (req: Request, res: Response) => {
 
   await Car.findByIdAndDelete(id).exec();
 
+  if (!Car) {
+    return res.status(404).json({ message: 'Car not found' });
+  }
+
   return res.status(200).json({ message: 'Car deleted' });
 };
 

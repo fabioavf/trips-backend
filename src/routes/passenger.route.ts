@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createPassenger, deletePassenger, getAllPassengers, getPassenger, updatePassenger } from 'src/controller/passenger.controller';
+import { createPassenger, deletePassenger, getAllPassengers, getPassenger, updatePassenger } from '../controller/passenger.controller';
 
 const passengerRoute = () => {
   const router = Router();
