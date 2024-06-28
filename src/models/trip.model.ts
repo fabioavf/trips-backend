@@ -15,6 +15,7 @@ type TripInput = {
   passenger: TripDocument['passenger'];
   origin: TripDocument['origin'];
   destination: TripDocument['destination'];
+  time: TripDocument['time'];
 };
 
 const tripSchema = new Schema(

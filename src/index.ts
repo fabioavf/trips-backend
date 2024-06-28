@@ -5,6 +5,7 @@ import carRoute from './routes/car.route';
 import driverRoute from './routes/driver.route';
 import passengerRoute from './routes/passenger.route';
 import tripRoute from './routes/trip.route';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -15,11 +16,17 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
-app.use('/', carRoute);
-app.use('/', driverRoute);
-app.use('/', passengerRoute);
-app.use('/', tripRoute);
+// placeholder root route
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Welcome to the Ride Sharing API' });
+});
+
+app.use('/', carRoute());
+app.use('/', driverRoute());
+app.use('/', passengerRoute());
+app.use('/', tripRoute());
 
 app.listen(PORT, async () => {
   await connectToDatabase();
